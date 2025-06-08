@@ -28,7 +28,7 @@ const formatOutput = (text) => {
 export default function ConsoleTerminal() {
     const terminalRef = useRef(null);
     const [currentPath, setCurrentPath] = useState('/home/root');
-    const [promptLabel, setPromptLabel] = useState('root@sudormrf.io:~# ');
+    const [promptLabel, setPromptLabel] = useState('root@sudo-rm-rf.io:~# ');
     const [fileSystem, setFileSystem] = useState({
         '/': {
             type: 'dir',
@@ -43,7 +43,7 @@ export default function ConsoleTerminal() {
                                 'secret_files.txt': { type: 'file', permissions: '-rw-r--r--', content: 'DATABASE_URI=admin:password123!@supabase.io:27017/database' },
                                 'matrix.dat': { type: 'file', permissions: '-rw-r--r--', content: 'Follow the white rabbit...' },
                                 'encrypted.db': { type: 'file', permissions: '-rw-r--r--' },
-                                'discord_invite.txt': { type: 'file', content: '<a href="https://discord.gg/5h6cMV6SbZ">https://discord.gg/5h6cMV6SbZ</a>' }
+                                'discord.txt': { type: 'file', content: '<a href="https://discord.gg/5h6cMV6SbZ">https://discord.gg/5h6cMV6SbZ</a>' }
                             }
                         }
                     }
@@ -56,7 +56,7 @@ export default function ConsoleTerminal() {
     // Update prompt label whenever path changes
     useEffect(() => {
         const displayPath = currentPath === '/home/root' ? '~' : currentPath;
-        setPromptLabel(`root@sudormrf.io:${displayPath}# `);
+        setPromptLabel(`root@sudo-rm-rf.io:${displayPath}# `);
     }, [currentPath]);
 
     // Helper function to get current directory object
