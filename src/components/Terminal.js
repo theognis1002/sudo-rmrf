@@ -39,7 +39,7 @@ export default function ConsoleTerminal() {
                         'root': {
                             type: 'dir',
                             children: {
-                                'system32.exe': { type: 'file', permissions: '-rw-r--r--', content: 'Backdoor opened!' },
+                                'lazarus.exe': { type: 'file', permissions: '-rw-r--r--', content: 'Backdoor opened!' },
                                 'secret_files.txt': { type: 'file', permissions: '-rw-r--r--', content: 'DATABASE_URI=admin:password123!@supabase.io:27017/database' },
                                 'matrix.dat': { type: 'file', permissions: '-rw-r--r--', content: 'Follow the white rabbit...' },
                                 'encrypted.db': { type: 'file', permissions: '-rw-r--r--' },
@@ -591,7 +591,7 @@ export default function ConsoleTerminal() {
                 // Update permissions to include execute
                 current.permissions = current.permissions.replace('rw-', 'rwx');
 
-                // Register the executable command (e.g., ./system32.exe)
+                // Register the executable command (e.g., ./backdoor.exe)
                 commands[`./${filename}`] = {
                     description: `Execute ${filename}`,
                     usage: `./${filename}`,
