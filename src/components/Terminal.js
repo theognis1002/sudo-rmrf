@@ -43,7 +43,7 @@ export default function ConsoleTerminal() {
                                 'secret_files.txt': { type: 'file', permissions: '-rw-r--r--', content: 'DATABASE_URI=admin:password123!@supabase.io:27017/database' },
                                 'matrix.dat': { type: 'file', permissions: '-rw-r--r--', content: 'Follow the white rabbit...' },
                                 'encrypted.db': { type: 'file', permissions: '-rw-r--r--' },
-                                'discord.txt': { type: 'file', content: '<a href="https://discord.gg/5h6cMV6SbZ">https://discord.gg/5h6cMV6SbZ</a>' }
+                                'discord.txt': { type: 'file', content: '<b>sudo rm -rf</b> — a community for cybersecurity, DevSecOps, hacking, and programming.\n\nDiscuss exploits, harden systems, write code — responsibly.\n\nJoin our Discord community: <a href="https://discord.gg/5h6cMV6SbZ">https://discord.gg/5h6cMV6SbZ</a>' }
                             }
                         }
                     }
@@ -704,6 +704,19 @@ grep pattern file- Search for pattern in file
                 .react-console-emulator__input {
                     caret-color: transparent !important;
                 }
+                .react-console-emulator__content {
+                    white-space: pre;
+                }
+                .react-console-emulator__inputArea {
+                    display: flex;
+                    flex-wrap: nowrap;
+                    align-items: center;
+                    width: 100%;
+                    overflow-x: auto;
+                }
+                .react-console-emulator__inputArea > span:first-child {
+                    flex: 0 0 auto;
+                }
             `}</style>
             <Terminal
                 ref={terminalRef}
@@ -722,7 +735,12 @@ grep pattern file- Search for pattern in file
                 }}
                 styleEchoBack='textOutput'
                 contentStyle={{ color: '#0F0' }}
-                promptLabelStyle={{ color: '#0F0' }}
+                promptLabelStyle={{
+                    color: '#0F0',
+                    whiteSpace: 'nowrap',
+                    minWidth: 'fit-content',
+                    flexShrink: 0
+                }}
                 inputTextStyle={{ color: '#0F0', fontWeight: 'bold' }}
                 messageStyle={{
                     color: 'rgba(0, 255, 0, 0.8)',
